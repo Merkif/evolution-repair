@@ -1,0 +1,50 @@
+@use "../mixins/breakpoint" as mq;
+
+.grid-default {
+	display: grid;
+	gap: 32px;
+
+	@include mq.above-md-desktop {
+		max-width: var(--content-width);
+		margin-inline: auto;
+	}
+
+	@include mq.above-tablet {
+		@include mq.md-desktop {
+			--padding-inline: var(--container-half) 0;
+		}
+
+		grid-template-columns: [content] 1fr [media] 1fr;
+	}
+
+	@include mq.tablet {
+		padding-inline: var(--container);
+	}
+
+	&--reversed {
+		@include mq.above-tablet {
+			@include mq.md-desktop {
+				--padding-inline: 0 var(--container-half);
+			}
+
+			grid-template-columns: [media] 1fr [content] 1fr;
+		}
+	}
+
+	&__content-wrapper {
+		@include mq.above-tablet {
+			grid-column: content;
+			grid-row: 1;
+			padding-inline: var(--padding-inline);
+		}
+	}
+
+	&__media-wrapper {
+		margin-block: 0;
+
+		@include mq.above-tablet {
+			grid-column: media;
+			grid-row: 1;
+		}
+	}
+}

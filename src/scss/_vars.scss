@@ -1,0 +1,23 @@
+@use "./functions/clamp-calc" as *;
+
+:root {
+	// base
+	/* clean-css ignore:start */
+	--TRUE: initial;
+	--FALSE: ;
+
+	/* clean-css ignore:end */
+	--font-family: "Onest", sans-serif;
+	--content-width: 1280px;
+	--container-offset:#{clamp-calc(768px, 1440px, 20px, 120px)};
+	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+	--container:max(var(--container-offset), calc((100% - var(--content-width)) / 2));
+	--container-half:max(var(--container-offset), calc(100% - var(--content-width) / 2));
+
+	/* colors */
+	--color-primary-hsl:16.8deg 99.01% 60.39%;
+	--color-primary:hsl(var(--color-primary-hsl) / 100%);
+	--color-secondary:hsl(var(--color-primary-hsl) / 70%);
+	--color-bg:#fff;
+	--color-default:#443f3c;
+  }

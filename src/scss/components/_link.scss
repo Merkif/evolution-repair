@@ -1,0 +1,51 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
+
+.link {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	font-weight: 600;
+	color: hsl(var(--color-primary-hsl) / var(--alpha, 100%));
+	transition: color 0.3s ease;
+	cursor: pointer;
+	gap: 8px;
+
+	&--dropdown {
+		&::after {
+			content: "";
+			display: block;
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 11 7'%3E%3Cpath stroke='%23FE6E36' stroke-width='2' d='m1.5 1 4 4 4-4'/%3E%3C/svg%3E");
+			width: 11px;
+			height: 7px;
+			background-color: currentcolor;
+			transition: rotate 0.3s ease;
+			rotate: var(--default-state, revert) var(--checked-state, 180deg);
+		}
+
+		&:has(:focus-visible) {
+			outline: 1px dashed var(--color-primary);
+			outline-offset: 4px;
+		}
+	}
+
+	&__dropdown {
+		&-show-text {
+			display: var(--default-state, flex) var(--checked-state, none);
+		}
+
+		&-hide-text {
+			display: var(--default-state, none) var(--checked-state, flex);
+		}
+	}
+
+	/* actions */
+	@include hover {
+		--alpha: 70%;
+	}
+
+	@include focus {
+		outline: 1px dashed var(--color-primary);
+		outline-offset: 4px;
+	}
+}

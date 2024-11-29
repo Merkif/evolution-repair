@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" class="page page--smooth">
+
+@include('partials/head.html', {
+	"title": "Ремонт квартир под ключ в Москве",
+	"description": "Делаем ремонт один в один с дизайн-проектом",
+})
+
+<body class="page__body">
+	@include('partials/header.html', {
+		"home": true
+	})
+	<main class="main">
+		@include('partials/section-hero.html')
+		@include('partials/section-pricing.html')
+		@include('partials/section-apartments.html')
+		@include('partials/section-guarantee.html')
+		@include('partials/section-stages.html')
+		@include('partials/request-block.html')
+	</main>
+	@include('partials/footer.html')
+</body>
+
+</html>

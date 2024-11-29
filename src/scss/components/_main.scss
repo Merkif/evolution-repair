@@ -1,0 +1,10 @@
+@use "./functions/clamp-calc" as *;
+
+.main {
+	&__section {
+		display: flex;
+		flex-direction: column;
+		padding-block: clamp-calc(590px, 1440px, 36px, 56px);
+		row-gap: clamp-calc(590px, 1440px, 24px, 40px);
+	}
+}

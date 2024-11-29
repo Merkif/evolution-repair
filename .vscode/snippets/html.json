@@ -1,0 +1,102 @@
+{
+  "svguse": {
+    "scope": "html",
+    "prefix": "g-use",
+    "body": [
+      "<svg aria-hidden=\"true\" width=\"\" height=\"\">",
+      "  <use xlink:href=\"img/sprite.svg#$2\"></use>",
+      "</svg>"
+    ],
+    "description": "Snippet for use svg sprites"
+  },
+  "checkbox": {
+    "scope": "html",
+    "prefix": "g-checkbox",
+    "body": [
+      "<label class=\"custom-checkbox\">",
+      "  <input type=\"checkbox\" class=\"custom-checkbox__field\">",
+      "  <span class=\"custom-checkbox__content\">$1</span>",
+      "</label>"
+    ],
+    "description": "Snippet for custom checkbox"
+  },
+  "navigation": {
+    "scope": "html",
+    "prefix": "g-nav",
+    "body": [
+      "<nav class=\"menu\" title=\"$1\" aria-label=\"Основное меню\" itemscope=\"itemscope\" itemtype=\"http://www.schema.org/SiteNavigationElement\">",
+	  "  <button class=\"menu__button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"menu__list\" aria-label=\"Открыть меню\">Открыть меню</button>",
+      "  <ul class=\"menu__list\" id=\"menu__list\" role=\"list\">",
+      "    <li class=\"menu__item\" itemprop=\"name\"><a class=\"menu__link\" href=\"#\" title=\"\" itemprop=\"url\"></a></li>",
+      "    <li class=\"menu__item\" itemprop=\"name\"><a class=\"menu__link\" href=\"#\" title=\"\" itemprop=\"url\"></a></li>",
+      "    <li class=\"menu__item\" itemprop=\"name\"><a class=\"nav__link\" href=\"#\" title=\"\" itemprop=\"url\"></a></li>",
+      "  </ul>",
+      "</nav>"
+    ],
+    "description": "Snippet for navigation"
+  },
+  "social": {
+    "scope": "html",
+    "prefix": "g-social",
+    "body": [
+      "<ul class=\"list-reset social\" title=\"$1\">",
+      "  <li class=\"social__item\"><a href=\"#\" target=\"_blank\" class=\"social__link social__link--fb\" aria-label=\"Наша страничка в Фейсбуке\"></a></li>",
+      "  <li class=\"social__item\"><a href=\"#\" target=\"_blank\" class=\"social__link social__link--vk\" aria-label=\"Наша страничка во Вконтакте\"></a></li>",
+      "  <li class=\"social__item\"><a href=\"#\" target=\"_blank\" class=\"social__link social__link--tw\" aria-label=\"Наша страничка в Твиттере\"></a></li>",
+      "</ul>"
+    ],
+    "description": "Snippet for social links"
+  },
+  "basicform": {
+    "prefix": "g-form",
+    "body": [
+      "<form action=\"#\" class=\"form\">",
+      "  <label class=\"form__label\">",
+      "    <input type=\"text\" name=\"Имя\" class=\"input-reset form__input\" placeholder=\"Имя\">",
+      "  </label>",
+      "  <button class=\"btn-reset form__btn\">Отправить</button>",
+      "</form>"
+    ],
+    "description": "Snippet for basic form"
+  },
+  "basicswiper": {
+    "prefix": "g-swiper",
+    "body": [
+      "<div class=\"swiper $1\">",
+      "  <div class=\"swiper-wrapper\">",
+      "    <div class=\"swiper-slide\">",
+      "    </div>",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "Snippet for basic swiper structure"
+  },
+  "picture": {
+    "prefix": "g-picture",
+    "body": [
+      "<picture>",
+      "  <source srcset=\"$1.webp\" type=\"image/webp\">",
+      "  <img class=\"image\" loading=\"lazy\" src=\"$1.$2\" width=\"$4\" height=\"$5\" alt=\"$3\">",
+      "</picture>"
+    ],
+    "description": "Snippet for basic logo structure"
+  },
+  "svgimg": {
+    "scope": "html",
+    "prefix": "g-svgimg",
+    "body": [
+      "<img loading=\"lazy\" src=\"$1.$2\" class=\"image\" width=\"$4\" height=\"$5\" alt=\"$3\">"
+    ],
+    "description": "Snippet for simple html svg images"
+  },
+  "transparent video (need special video-file)": {
+    "prefix": "g-tr-video",
+    "body": [
+      "<video playsinline preload=\"metadata\">",
+      "  <source src=\"/$1\" type=\"video/mp4; codecs=hvc1\">",
+      "  <source src=\"/$2\" type=\"video/webm\">",
+      "</video>"
+    ],
+    "description": "Snippet for transparent video"
+  }
+}

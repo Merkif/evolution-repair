@@ -1,0 +1,128 @@
+@use "../functions/clamp-calc" as *;
+@use "../mixins/breakpoint" as mq;
+
+.stage-cards {
+	display: flex;
+	flex-direction: column;
+	row-gap: 32px;
+}
+
+.stage-card {
+	--clamp-32-24: #{clamp-calc(1024px, 1440px, 24px, 32px)};
+	--checked-state: var(--FALSE);
+	--default-state: var(--TRUE);
+	--card-height: 171px;
+
+	box-shadow: -6px -12px 0 0 #ccc4c4, 12px 6px 16px 0 rgba(0, 0, 0, 0.08);
+	background-color: #fff;
+
+	@include mq.above-small-tablet {
+		height: var(--default-state, var(--card-height))
+			var(--checked-state, auto);
+	}
+
+	@include mq.small-tablet {
+		--card-height: 240px;
+	}
+
+	&__figure {
+		position: relative;
+		float: left;
+		margin: 0;
+		margin-block-end: var(--default-state, 0)
+			var(--checked-state, var(--clamp-32-24));
+		margin-inline-end: var(--default-state, 0)
+			var(--checked-state, var(--clamp-32-24));
+
+		@include mq.above-tablet {
+			width: 47%;
+			min-width: 420px;
+			max-width: 544px;
+		}
+
+		@include mq.above-mobile {
+			height: var(--default-state, var(--card-height))
+				var(--checked-state, auto);
+		}
+
+		@include mq.tablet {
+			width: 50%;
+		}
+
+		@include mq.small-tablet {
+			width: 100%;
+		}
+
+		@include mq.mobile {
+			width: 100%;
+			aspect-ratio: 4 / 2.1;
+		}
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-position: center;
+	}
+
+	&__title {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+		text-transform: uppercase;
+		color: #fff;
+		padding-inline: 32px;
+	}
+
+	&__body {
+		display: var(--default-state, flex) var(--checked-state, block);
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		padding-block: clamp-calc(1024px, 1440px, 24px, 48px) 32px;
+		padding-inline: var(--default-state, var(--clamp-32-24))
+			var(--checked-state, clamp-calc(1024px, 1440px, 24px, 64px));
+
+		*:not(.float, .stage-card__control) {
+			clear: both;
+		}
+
+		p {
+			line-height: 1.66;
+		}
+
+		p,
+		.list {
+			margin-block: 16px;
+		}
+
+		.list + .list {
+			margin-block-start: 32px;
+		}
+
+		.title:not(.stage-card__main-title, .stage-card__main-title + h5) {
+			margin-block: var(--clamp-32-24) 16px;
+		}
+
+		> *:not(.stage-card__main-title, .stage-card__control):last-of-type {
+			margin-block-end: var(--clamp-32-24);
+		}
+
+		> *:not(.stage-card__main-title, .stage-card__control) {
+			display: var(--default-state, none) var(--checked-state, flex);
+		}
+	}
+
+	&__main-title {
+		margin-block-end: clamp-calc(1024px, 1440px, 18px, 24px);
+	}
+
+	/* actions */
+	&:has(&__control input:checked) {
+		--checked-state: var(--TRUE);
+		--default-state: var(--FALSE);
+	}
+}

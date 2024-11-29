@@ -1,0 +1,110 @@
+@use "../mixins/breakpoint" as mq;
+@use "./functions/clamp-calc" as *;
+
+.pricing-cards {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(var(--item-width, clamp-calc(590px, 1440px, 250px, 300px)), 1fr)
+	);
+	gap: clamp-calc(590px, 1024px, 32px, 50px)
+		clamp-calc(590px, 1440px, 24px, 32px);
+
+	.pricing-card {
+		height: 100%;
+	}
+}
+
+.pricing-card {
+	--checked-state: var(--FALSE);
+	--default-state: var(--TRUE);
+
+	counter-reset: hidden-items;
+	display: flex;
+	flex-direction: column;
+	box-shadow: -6px -2px 0 0 #d3cecb;
+	background-color: #fff;
+
+	&__title {
+		text-align: center;
+	}
+
+	&__figure {
+		margin: 0;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 352/213;
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 1.66;
+		padding-block: clamp-calc(590px, 1440px, 24px, 32px);
+		padding-inline: clamp-calc(590px, 1440px, 24px, 40px);
+		row-gap: 16px;
+	}
+
+	&__desc {
+		position: relative;
+		line-height: inherit;
+		text-align: center;
+		padding-block-end: clamp-calc(590px, 1440px, 12px, 16px);
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			background-color: currentcolor;
+			inset-block-end: 0;
+			margin-inline: auto;
+			scale: 0.58;
+		}
+	}
+
+	&__price {
+		line-height: 1.625;
+	}
+
+	&__more {
+		&-show-text {
+			display: var(--default-state, flex) var(--checked-state, none);
+
+			&::after {
+				content: counter(hidden-items);
+				display: block;
+				padding-inline-start: 4px;
+			}
+		}
+
+		&-hide-text {
+			display: var(--default-state, none) var(--checked-state, flex);
+		}
+
+		&:has(:focus-visible) {
+			outline: 1px dashed var(--color-primary);
+			outline-offset: 4px;
+		}
+	}
+
+	.hidden {
+		counter-increment: hidden-items;
+		position: var(--default-state, absolute) var(--checked-state, statick);
+		overflow: hidden;
+		height: var(--default-state, 0) var(--checked-state, auto);
+		opacity: var(--default-state, 0) var(--checked-state, 1);
+		transition: all 0.3s ease;
+	}
+
+	/* actions */
+	&:has(&__more input:checked) {
+		--checked-state: var(--TRUE);
+		--default-state: var(--FALSE);
+	}
+}

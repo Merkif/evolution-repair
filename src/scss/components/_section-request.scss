@@ -1,0 +1,46 @@
+@use "../functions/clamp-calc" as *;
+@use "../mixins/_breakpoint.scss" as mq;
+
+.section-request {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	background: linear-gradient(245deg, #fe9972 5.2%, #fe6e36 100%);
+	padding-block: clamp-calc(590px, 1440px, 36px, 56px);
+	padding-inline: var(--container);
+	row-gap: clamp-calc(590px, 1440px, 24px, 40px);
+
+	&__title {
+		z-index: 1;
+	}
+
+	&--bg {
+		position: relative;
+		overflow: hidden;
+		overflow: clip;
+		background: var(--color-default) url("../img/plan.svg") no-repeat
+			var(--pos-x, 30%) var(--pos-y, 47%) / var(--bg-size, 133%);
+
+		@include mq.tablet {
+			--pos-x: 30%;
+			--pos-y: 46%;
+			--bg-size: 137%;
+		}
+
+		@include mq.mobile {
+			--pos-x: 43%;
+			--pos-y: 55%;
+			--bg-size: 168%;
+		}
+	}
+
+	&__content {
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: clamp-calc(590px, 1440px, 18px, 24px);
+	}
+}

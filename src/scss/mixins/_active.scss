@@ -1,0 +1,13 @@
+@mixin mobile-active {
+	@media (hover: none) {
+		&:active {
+			@content;
+		}
+	}
+}
+
+@mixin active {
+	&:active {
+		@content;
+	}
+}

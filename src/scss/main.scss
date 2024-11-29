@@ -1,0 +1,30 @@
+// базовые подключения
+@use "vars";
+@use "settings";
+@use "fonts" as *;
+
+// подключения компонентов страницы
+@use "./components/menu";
+@use "./components/logo";
+@use "./components/button";
+@use "./components/title";
+@use "./components/desc";
+@use "./components/header";
+@use "./components/main";
+@use "./components/features";
+@use "./components/link";
+@use "./components/list";
+@use "./components/pricing-cads";
+@use "./components/card";
+@use "./components/tabs";
+@use "./components/slider";
+@use "./components/grid-default";
+@use "./components/guarantee-list";
+@use "./components/stage-card";
+@use "./components/section-hero";
+@use "./components/section-pricing";
+@use "./components/section-apartments";
+@use "./components/section-guarantee";
+@use "./components/section-stages";
+@use "./components/section-request";
+@use "./components/utils";

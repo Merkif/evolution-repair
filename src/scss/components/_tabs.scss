@@ -1,0 +1,43 @@
+@use "../mixins/breakpoint" as mq;
+
+.tabs {
+	display: flex;
+	flex-direction: column;
+	row-gap: 24px;
+
+	&__tablist {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		overflow-x: auto;
+		margin: 0;
+		padding: 0;
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+		gap: 16px;
+		padding-block: 2px;
+
+		&-item {
+			flex: 0 0 auto;
+			white-space: nowrap;
+			scroll-snap-align: center;
+
+			&:first-child {
+				margin-inline-start: auto;
+			}
+
+			&:last-child {
+				margin-inline-end: auto;
+			}
+		}
+
+		@include mq.tablet {
+			padding-inline: var(--container);
+			scrollbar-width: 0;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}

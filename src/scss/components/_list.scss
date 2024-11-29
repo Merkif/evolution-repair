@@ -1,0 +1,25 @@
+@use "../functions/clamp-calc" as *;
+
+.list {
+	display: flex;
+	flex-direction: column;
+	row-gap: clamp-calc(590px, 1440px, 6px, 12px);
+
+	li {
+		position: relative;
+		display: flex;
+		align-items: baseline;
+		gap: clamp-calc(590px, 1440px, 10px, 17px);
+
+		&::before {
+			content: "";
+			position: relative;
+			top: -4px;
+			display: block;
+			flex-shrink: 0;
+			width: 13px;
+			height: 2px;
+			background-color: currentcolor;
+		}
+	}
+}

@@ -1,0 +1,88 @@
+@use "../mixins/breakpoint" as mq;
+@use "./functions/clamp-calc" as *;
+
+.section-hero {
+	--padding-block: #{clamp-calc(590px, 1440px, 30px, 51px)};
+
+	position: relative;
+	z-index: 11;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: #fff;
+	background-color: var(--color-default);
+	padding-block: calc(var(--header-height) + var(--padding-block)) var(--padding-block);
+	padding-inline: var(--container);
+	row-gap: 60px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background-image: linear-gradient(150deg, rgba(76, 33, 16, 0.9) 15.04%, rgba(254, 153, 114, 0.4) 100%);
+		user-select: none;
+	}
+
+	@include mq.above-tablet {
+		min-height:100vh;
+		min-height:100svh;
+	}
+
+	@include mq.above-desktop {
+		min-height: 76vh;
+		min-height: 76svh;
+	}
+
+	@include mq.mobile {
+		row-gap: 24px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		max-width: 928px;
+		row-gap: clamp-calc(590px, 1440px, 24px, 32px);
+
+		@include mq.mobile {
+			display: contents;
+		}
+	}
+
+	&__desc {
+		font-size: clamp-calc(590px, 1440px, 18px, 24px);
+		line-height: 1.35;
+		margin-block-end: auto;
+	}
+
+	&__features {
+		max-width: 928px;
+
+		@include mq.mobile {
+			margin-block: 20px;
+		}
+	}
+
+	&__picture {
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__button {
+		order: 1;
+	}
+}
+
+

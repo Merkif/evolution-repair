@@ -1,0 +1,16 @@
+@use "../mixins/breakpoint" as mq;
+
+.section-apartments {
+	overflow-x: hidden;
+	overflow-x: clip;
+
+	@include mq.above-tablet {
+		padding-inline: var(--container);
+	}
+
+	&__title {
+		@include mq.tablet {
+			padding-inline: var(--container);
+		}
+	}
+}

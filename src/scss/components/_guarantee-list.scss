@@ -1,0 +1,35 @@
+@use "../functions/clamp-calc" as *;
+@use "../mixins/breakpoint" as mq;
+
+.guarantee-list {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(var(--item-width, clamp-calc(1024px, 1440px, 120px, 150px)), 1fr)
+	);
+	gap: 40px 24px;
+
+	@include mq.tablet {
+		--item-width: #{clamp-calc(590px, 1024px, 140px, 220px)};
+	}
+}
+
+.guarantee {
+	&__icon {
+		display: block;
+		width: clamp-calc(590px, 1440px, 30px, 42px);
+		color: var(--color-primary);
+		margin-block-end: clamp-calc(590px, 1440px, 10px, 16px);
+	}
+
+	&__title {
+		font-size: clamp-calc(760px, 1440px, 16px, 24px);
+		line-height: 1.16;
+		margin-block-end: 6px;
+	}
+
+	&__desc {
+		font-size: clamp-calc(590px, 1440px, 12px, 14px);
+		line-height: 1.33;
+	}
+}

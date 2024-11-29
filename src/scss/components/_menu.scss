@@ -1,0 +1,382 @@
+@use "../mixins/breakpoint" as mq;
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
+@use "./functions/clamp-calc" as *;
+
+.menu {
+	&__link {
+		display: flex;
+		align-items: center;
+		outline-offset: 4px;
+		border: none;
+		padding: 0;
+		font: inherit;
+		line-height: 1.35;
+		color: inherit;
+		background-color: transparent;
+		transition: color 0.3s ease;
+		cursor: pointer;
+		gap: 13px;
+
+		&-icon {
+			color: hsl(var(--color-primary-hsl) / 100%);
+		}
+
+		&--dropdown {
+			@include mq.above-tablet {
+				&::after {
+					content: "";
+					display: block;
+					mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 6 4'%3E%3Cpath fill='%23FE9972' d='M0 0h6L3 4 0 0Z'/%3E%3C/svg%3E");
+					mask-repeat: no-repeat;
+					mask-size: contain;
+					width: 6px;
+					height: 4px;
+					background-color: hsl(var(--color-primary-hsl) / 100%);
+				}
+			}
+		}
+
+		&:not(&--dropdown) {
+			@include hover {
+				color: var(--color-primary);
+			}
+		}
+	}
+}
+
+@include mq.above-tablet {
+	.menu {
+		&__button {
+			display: none;
+		}
+
+		&__container {
+			display: flex;
+			flex-direction: column;
+			row-gap: 10px;
+		}
+
+		&__list {
+			display: flex;
+			align-items: center;
+			gap: clamp-calc(590px, 1440px, 24px, 30px);
+
+			&--top {
+				align-self: flex-end;
+				gap: clamp-calc(590px, 1440px, 26px, 32px);
+			}
+		}
+
+		&__link {
+			&--bold {
+				font-weight: 600;
+			}
+
+			&--dropdown {
+				position: relative;
+				text-decoration: underline;
+				text-decoration-color: transparent;
+				gap: 6px;
+				text-decoration-thickness: 4px;
+				text-underline-offset: 12px;
+
+				&::before {
+					content: "";
+					position: absolute;
+					inset-block: -5px -12px;
+					inset-inline: 0;
+				}
+			}
+		}
+
+		&__dropdown-list {
+			position: absolute;
+			top: 100%;
+			z-index: 12;
+			display: grid;
+			grid-template-columns: var(--dropdown-columns, 1fr 1fr);
+			max-width: 500px;
+			color: var(--color-default);
+			opacity: 0;
+			visibility: hidden;
+			transition-property: visibility, opacity;
+			transition-duration: 0.3s;
+			transition-timing-function: ease;
+			gap: 20px 40px;
+			padding-block: 30px;
+			padding-inline-end: 20px;
+
+			&::before {
+				content: "";
+				position: absolute;
+				z-index: -1;
+				box-shadow: 0 4px 9px 0 #00000012;
+				background-color: #fff;
+				opacity: 0;
+				visibility: hidden;
+				transition-property: visibility, opacity;
+				transition-duration: 0.3s;
+				transition-timing-function: ease;
+				pointer-events: none;
+				border-block: 1px solid rgba(0, 38, 119, 0.07);
+				inset-block: 0;
+				inset-inline: -100vw;
+			}
+		}
+
+		/* actions */
+		&__item--dropdown:has(:is(:hover, :focus-visible)) &__link--dropdown {
+			text-decoration-color: var(--color-primary);
+		}
+
+		&__item--dropdown:has(:is(:hover, :focus-visible)) &__dropdown-list {
+			opacity: 1;
+			visibility: visible;
+
+			&::before {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+
+@include mq.tablet {
+	.menu {
+		&--main {
+			display: contents;
+		}
+
+		&__container {
+			--open: var(--FALSE);
+			--close: var(--TRUE);
+
+			position: fixed;
+			inset: 0;
+			z-index: 20;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow-y: auto;
+			width: 100%;
+			height: 100vh;
+			height: calc(100dvh - var(--header-height));
+			color: var(--color-default);
+			background-color: #fff;
+			visibility: var(--open, visible) var(--close, hidden);
+			transition: translate 0.3s ease, visibility 0.3s ease;
+			border-block-start: 1px solid rgba(0, 38, 119, 0.07);
+			margin-block-start: var(--header-height);
+			overscroll-behavior: contain;
+			padding-block-end: 30px;
+			row-gap: 30px;
+			translate: var(--open, 0 0) var(--close, 100% 0);
+
+			&--open {
+				--close: var(--FALSE);
+				--open: var(--TRUE);
+			}
+		}
+
+		&__list {
+			&--top {
+				display: flex;
+				flex-flow: row-reverse wrap;
+				align-items: center;
+				justify-content: center;
+				order: 1;
+				color: var(--color-primary);
+				border-block-start: 1px solid rgba(0, 38, 119, 0.07);
+				gap: 30px;
+				padding-block-start: 30px;
+				padding-inline: var(--container);
+
+				li:last-child {
+					flex-grow: 1;
+					margin-inline-end: auto;
+				}
+			}
+		}
+
+		&__item {
+			&--dropdown {
+				--open: var(--FALSE);
+				--close: var(--TRUE);
+
+				display: grid;
+				grid-template-rows: max-content 0fr;
+				overflow: hidden;
+				overflow: clip;
+				transition: grid-template-rows 0.3s;
+			}
+
+			&--open {
+				--close: var(--FALSE);
+				--open: var(--TRUE);
+
+				grid-template-rows: max-content 1fr;
+			}
+		}
+
+		&__list--main &__item{
+			border-block-end: 1px solid rgba(0, 38, 119, 0.07);
+		}
+
+		&__list--main &__link:not(&__dropdown-link) {
+			--inline-size: 14px;
+
+			appearance: none;
+			position: sticky;
+			left: 0;
+			top: -1px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border: none;
+			padding: 0;
+			width: 100%;
+			font: inherit;
+			font-weight: 600;
+			text-align: start;
+			color: var(--color-primary-dark);
+			background-color: rgba(255, 255, 255, 0.7);
+			backdrop-filter: blur(12px) saturate(1);
+			gap: 15px;
+			padding-block: 14px;
+			padding-inline: var(--container);
+		}
+
+		&__list--main &__link:not(&__link--dropdown, &__dropdown-link) {
+			&::after {
+				content: "";
+				display: block;
+				mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 9 10'%3E%3Cpath fill='%23FE6E36' d='M4.95 2.81799H1.328V.817993h7V7.81799h-2v-3.55l-4.914 4.914L0 7.76799l4.95-4.95Z'/%3E%3C/svg%3E");
+				mask-repeat: no-repeat;
+				mask-size: contain;
+				width: 12px;
+				height:11px;
+				background-color: var(--color-primary);
+			}
+		}
+
+		&__link--dropdown {
+			&::after {
+				content: "";
+				display: block;
+				mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 10 7'%3E%3Cpath stroke='%23FE6E36' stroke-width='2' d='m1 1 4 4 4-4'/%3E%3C/svg%3E");
+				mask-repeat: no-repeat;
+				mask-size: contain;
+				width: 12px;
+				height: 9px;
+				background-color: var(--color-primary);
+				transform-origin: center;
+				transition: rotate 0.3s ease;
+				rotate: var(--close, revert) var(--open, 180deg);
+			}
+		}
+
+		&__dropdown-list {
+			display: flex;
+			flex-direction: column;
+			min-height: 0;
+			color: var(--color-primary-dark);
+			padding-block-end: var(--open, 10px) var(--close, revert);
+			padding-inline: calc(var(--container) + 10px) var(--container);
+			row-gap: 10px;
+		}
+
+		&__dropdown-link {
+			padding-block: 8px;
+		}
+
+		&__button {
+			--size: 20px;
+			--gap: 5px;
+
+			position: relative;
+			z-index: 11;
+			display: flex;
+			flex-shrink: 0;
+			flex-direction: column;
+			justify-content: center;
+			order: 1;
+			overflow: hidden;
+			border: none;
+			padding: 0;
+			width: var(--size);
+			height: var(--size);
+			background-color: transparent;
+			row-gap: var(--gap);
+
+			&-line {
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: var(
+					--menu-button-color,
+					var(--color-primary)
+				);
+				transition-property: width, transform, opacity;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-in-out;
+			}
+
+			&--open {
+				--menu-button-color: hsl(var(--color-primary-hsl) / 100%);
+
+				.menu__button {
+					&-line {
+						&:nth-child(1) {
+							transform: rotate(45deg) translate(25%, 253%);
+						}
+
+						&:nth-child(2) {
+							transform: scale(0);
+						}
+
+						&:nth-last-child(1) {
+							transform: rotate(-45deg) translate(25%, -226%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mq.tablet {
+	.menu-open {
+		overflow: hidden;
+		height: 100%;
+		height: 100svh;
+	}
+
+	.menu-open:not(:has(.header--main)) .page__body {
+		position: fixed;
+		top: var(--window-scroll-y);
+		overflow: hidden;
+		width: 100%;
+		height: auto;
+		padding-block-start: var(--header-height);
+	}
+
+	.hystmodal__opened:not(:has(.header--main)) .page__body {
+		padding-block-start: var(--header-height);
+	}
+
+	.menu-open .header,
+	.hystmodal__opened .header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 20;
+		width: 100%;
+		color: #000;
+		background-color: #fff;
+
+		&__logo {
+			color: hsl(var(--color-primary-hsl) / 100%);
+		}
+	}
+}

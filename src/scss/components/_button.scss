@@ -1,0 +1,108 @@
+@use "../mixins/breakpoint" as mq;
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/active" as *;
+@use "./functions/clamp-calc" as *;
+
+.button {
+	--button-gradient: linear-gradient(237deg, #fe9972 0%, #fe6e36 100%);
+	--button-background: var(--color-secondary);
+	--button-border: revert;
+	--button-padding-block: 8px;
+	--button-padding-inline: 16px;
+	--button-font-size: 14px;
+	--button-border-radius: 4px;
+	--button-color: #fff;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border: var(--button-border);
+	border-radius: var(--button-border-radius);
+	font-weight: 600;
+	font-size: var(--button-font-size);
+	text-align: center;
+	color: var(--button-color);
+	background-image: var(--button-gradient);
+	background-color: var(--button-background);
+	transition-property: color, background-color;
+	transition-duration: 0.3s;
+	transition-timing-function: ease;
+	cursor: pointer;
+	padding-block: var(--button-padding-block);
+	padding-inline: var(--button-padding-inline);
+
+	&--pill {
+		--button-border-radius: 32px;
+		--button-padding-inline: 18px;
+
+		&[aria-selected="false"] {
+			--button-gradient: revert;
+			--button-background: #f6eeeb;
+			--button-color: var(--color-default);
+		}
+	}
+
+	&--large {
+		--button-padding-block: #{clamp-calc(590px, 1440px, 12px, 16px)};
+		--button-padding-inline: #{clamp-calc(590px, 1440px, 24px, 32px)};
+		--button-font-size: #{clamp-calc(590px, 1440px, 16px, 18px)};
+	}
+
+	&--outline {
+		--button-border: 1px solid var(--color-primary);
+		--button-color: #000;
+		--button-gradient: revert;
+		--button-background: transparent;
+
+		@include hover {
+			--button-color: var(--color-primary);
+		}
+
+		@include active {
+			--button-color: #000;
+		}
+	}
+
+	&--gradient {
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			border-radius: var(--button-border-radius);
+			background: linear-gradient(237deg, #fe9972 0%, #fd6327 17.61%);
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+
+		@include hover {
+			&::before {
+				opacity: 1;
+			}
+		}
+
+		@include active {
+			&::before {
+				opacity: 0;
+			}
+		}
+	}
+
+	&--wide-sm {
+		@include mq.mobile {
+			width: 100%;
+		}
+	}
+
+	&--wide {
+		display: flex;
+		width: 100%;
+	}
+
+	span {
+		position: relative;
+	}
+}

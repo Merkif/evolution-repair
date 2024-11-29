@@ -1,0 +1,39 @@
+@use "../mixins/breakpoint" as mq;
+
+.slider {
+	--swiper-navigation-color: #fff;
+	--swiper-navigation-size: 40px;
+	--swiper-navigation-padding: 10px;
+
+	@include mq.tablet {
+		padding-inline: var(--container);
+	}
+
+	&::part(container) {
+		@include mq.tablet {
+			overflow: revert;
+		}
+	}
+
+	&::part(button-prev),
+	&::part(button-next) {
+		border-radius: 50%;
+		padding: var(--swiper-navigation-padding);
+		width: var(--swiper-navigation-size);
+		box-sizing: border-box;
+		background-color: var(--color-primary);
+		aspect-ratio: 1/1;
+
+		@include mq.tablet {
+			display: none;
+		}
+	}
+
+	&::part(button-prev) {
+		padding-inline-end: calc(var(--swiper-navigation-padding) + 3px);
+	}
+
+	&::part(button-next) {
+		padding-inline-start: calc(var(--swiper-navigation-padding) + 3px);
+	}
+}

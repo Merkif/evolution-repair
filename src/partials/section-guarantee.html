@@ -1,0 +1,47 @@
+<section class="section-guarantee" aria-labelledby="guarantee-title">
+	<div class="grid-default grid-default--reversed">
+		<div class="grid-default__content-wrapper section-guarantee__content">
+			<h2 class="section-guarantee__title title title--2 wrap-balance" id="guarantee-title">Гарантируем полную реализацию вашего ремонта!</h2>
+			<ul class="section-guarantee__list guarantee-list" role="list">
+				@loop('guarantee.html', [
+					{
+						"icon": "icon-schedule",
+						"title": "Ремонт <br> в срок",
+						"desc": "Сроки и гарантии указаны в <a href='#'>договоре</a>",
+					},
+					{
+						"icon": "icon-price",
+						"title": "Оплата по факту сдачи работ",
+						"desc": "Вы платите только после подписания акта приема работ",
+					},
+					{
+						"icon": "icon-discount",
+						"title": "Предоставим скидку до 30%",
+						"desc": "На черновые материалы и чистовые материалы;",
+					},
+					{
+						"icon": "icon-build",
+						"title": "Ремонт любой сложности",
+						"desc": "Выполняем даже самые смелые предпочтения заказчика",
+					},
+					{
+						"icon": "icon-gift",
+						"title": "Подарки на 350 тыс./руб. от партнеров",
+						"desc": "Дарим сертификаты на покупку чистовых материалов и мебели.",
+					},
+					{
+						"icon": "icon-camera",
+						"title": "Контроль работ на объекте 24/7",
+						"desc": "С вами всегда на связи ваш личный прораб. Также устанавливаем систему онлайн наблюдения за объектом",
+					},
+				])
+			</ul>
+		</div>
+		<figure class="grid-default__media-wrapper section-guarantee__media">
+			<picture>
+			  <source srcset="img/guarantee-cover.webp" type="image/webp">
+			  <img class="section-guarantee__img" loading="lazy" src="img/guarantee-cover.jpg" width="715" height="773" alt="">
+			</picture>
+		</figure>
+	</div>
+</section>
