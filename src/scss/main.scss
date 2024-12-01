@@ -21,10 +21,14 @@
 @use "./components/grid-default";
 @use "./components/guarantee-list";
 @use "./components/stage-card";
+@use "./components/project-card";
+
+// подключения секций страницы
 @use "./components/section-hero";
 @use "./components/section-pricing";
 @use "./components/section-apartments";
 @use "./components/section-guarantee";
 @use "./components/section-stages";
 @use "./components/section-request";
+@use "./components/section-portfolio";
 @use "./components/utils";

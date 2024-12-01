@@ -12,6 +12,7 @@
 	--button-font-size: 14px;
 	--button-border-radius: 4px;
 	--button-color: #fff;
+	--button-font-weight: 600;
 
 	display: inline-flex;
 	align-items: center;
@@ -19,7 +20,7 @@
 	border: none;
 	border: var(--button-border);
 	border-radius: var(--button-border-radius);
-	font-weight: 600;
+	font-weight: var(--button-font-weight);
 	font-size: var(--button-font-size);
 	text-align: center;
 	color: var(--button-color);
@@ -28,19 +29,30 @@
 	transition-property: color, background-color;
 	transition-duration: 0.3s;
 	transition-timing-function: ease;
-	cursor: pointer;
+	cursor: default;
 	padding-block: var(--button-padding-block);
 	padding-inline: var(--button-padding-inline);
+
+	&:is([href], [type]) {
+		cursor: pointer;
+	}
 
 	&--pill {
 		--button-border-radius: 32px;
 		--button-padding-inline: 18px;
+		--button-font-weight: 400;
 
 		&[aria-selected="false"] {
 			--button-gradient: revert;
 			--button-background: #f6eeeb;
 			--button-color: var(--color-default);
 		}
+	}
+
+	&--light {
+		--button-gradient: revert;
+		--button-background: #f6eeeb;
+		--button-color: var(--color-default);
 	}
 
 	&--large {

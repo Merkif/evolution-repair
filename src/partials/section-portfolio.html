@@ -1,0 +1,98 @@
+<div class="main__section section-portfolio" aria-labelledby="portfolio-title">
+	<h2 class="section-portfolio__title title title--2 title--center" id="portfolio-title">Посмотрите на примеры <br> наших работ</h2>
+	<ul class="section-portfolio__projects project-cards" role="list">
+		@loop('project-card.html', [
+			{
+				"title": "Кутузовский",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"2 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-1"
+			},
+			{
+				"title": "Метрополия",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"4 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-2"
+			},
+			{
+				"title": "Дом в Бекетово",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"3 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-3"
+			},
+			{
+				"title": "Кутузовский",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"2 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-4"
+			},
+			{
+				"title": "Метрополия",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"4 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-5"
+			},
+			{
+				"title": "Дом в Бекетово",
+				"desc": "Полный комплекс ремонтных работ по дизайн-проекту в загородном коттедже.",
+				"tags": [
+					{
+						"content":"35 м2",
+						"customClass":"",
+					},
+					{
+						"content":"3 месяца",
+						"customClass": "button--light",
+					},
+				],
+				"image": "project-card-6"
+			}
+		])
+	</ul>
+	<button class="section-portfolio__button button button--large button--outline" type="button" id="show-more-projects">Показать ещё 6</button>
+</div>

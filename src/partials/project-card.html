@@ -1,0 +1,21 @@
+<li class="project-cards__item project-card">
+	@if (context.tags) {
+		<ul class="project-card__tags" role="list">
+			@for (var i = 0; i < context.tags.length; i++) {
+				<li><span class="button button--pill `+context.tags[i].customClass+`">`+context.tags[i].content+`</span></li>
+			}
+		</ul>
+	}
+
+	<div class="project-card__content">
+		<h3 class="project-card__title title title--3">@title</h3>
+		<div class="project-card__desc desc wrap-balance">
+			<p>@desc</p>
+		</div>
+		<button class="project-card__button button button--gradient" type="button" data-hystmodal="#modal-order"><span>Заказать похожий</span></button>
+	</div>
+	<picture class="project-card__picture">
+		<source srcset="img/@image.webp" type="image/webp">
+		<img class="project-card__img" loading="lazy" src="img/@image.jpg" width="352" height="512" alt="">
+	</picture>
+</li>
