@@ -22,6 +22,7 @@
 @use "./components/guarantee-list";
 @use "./components/stage-card";
 @use "./components/project-card";
+@use "./components/team-member";
 
 // подключения секций страницы
 @use "./components/section-hero";
@@ -31,4 +32,7 @@
 @use "./components/section-stages";
 @use "./components/section-request";
 @use "./components/section-portfolio";
+@use "./components/section-team";
+
+// utils
 @use "./components/utils";

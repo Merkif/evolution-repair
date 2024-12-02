@@ -1,0 +1,36 @@
+<section class="section-team" aria-labelledby="team-title">
+	<div class="section-team__content">
+		<h2 class="section-team__title title title--2 split-title" id="team-title">Дружная команда,<br> а не просто бригада</h2>
+		<div class="section-team__desc desc">
+			<p>Надежные и опытные специалисты</p>
+		</div>
+	</div>
+	<ul class="section-team__members team-members team-members--horizontal" id="members-scroll" role="list">
+		@loop('team-member.html', [
+			{
+				"name": "Игорь",
+				"light": true,
+				"position": "Директор",
+				"image": "member-1",
+			},
+			{
+				"name": "Алексей",
+				"light": true,
+				"position": "Дизайнер",
+				"image": "member-2",
+			},
+			{
+				"name": "Владимир",
+				"light": true,
+				"position": "Руководитель проекта",
+				"image": "member-3",
+			},
+			{
+				"name": "Игорь",
+				"light": true,
+				"position": "Директор",
+				"image": "member-1",
+			},
+		])
+	</ul>
+</section>

@@ -1,0 +1,11 @@
+<li class="team-members__item team-member">
+	<h3 class="team-member__name @if(context.light){team-member__name--light} title title--3">@name</h3>
+	<span class="team-member__position button button--gradient button--pill"><span>@position</span></span>
+	<figure class="team-member__figure">
+		<picture>
+		  <source srcset="img/@image.webp" type="image/webp">
+		  <source srcset="img/@image.avif" type="image/avif">
+		  <img class="team-member__img" loading="lazy" src="img/@image.jpg" width="362" height="362" alt="">
+		</picture>
+	</figure>
+</li>

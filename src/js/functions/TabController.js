@@ -2,7 +2,6 @@ export default class TabController {
 	constructor(tabContainer, options = {}) {
 		this.container = this._resolveElement(tabContainer);
 		if (!this.container) {
-			console.error("Tab container element not found.");
 			return;
 		}
 
@@ -187,7 +186,7 @@ export default class TabController {
 			);
 			if (newPanel) newPanel.hidden = false;
 
-			this.options.onTabSwitch(newPanel, newTab);
+			this.options.onTabSwitch(newPanel, oldTab, newTab);
 		}
 	}
 

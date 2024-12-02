@@ -57,7 +57,9 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "hystmodal": "^1.0.1",
+    "split-type": "^0.3.4",
     "swiper": "^11.1.15"
   }
 }
