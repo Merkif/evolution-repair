@@ -15,7 +15,7 @@ if (sectionTeam) {
 			x: () => getToValue(),
 			ease: "none",
 			scrollTrigger: {
-				scrub: 1.4,
+				scrub: 1.2,
 				invalidateOnRefresh: true,
 				invalidateOnResize: true,
 				trigger: sectionTeam,
