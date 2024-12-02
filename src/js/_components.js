@@ -5,6 +5,7 @@ import "./components/fixed-header.js";
 import "./components/split-title.js";
 import "./components/dropdown-menu.js";
 import "./components/swiper-tabs.js";
+import "./components/request-section.js";
 import "./components/observe-body-resize.js";
 import "./components/members.js";
 import "./components/stagger-item.js";
