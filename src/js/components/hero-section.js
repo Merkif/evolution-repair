@@ -10,6 +10,7 @@ tl.fromTo(
 	},
 	{
 		ease: "power4.out",
+		delay:0.5,
 		opacity: 1,
 		yPercent: 0,
 		duration: 1,
