@@ -1,4 +1,5 @@
 import "./components/header-height.js";
+import "./components/hero-section.js";
 import "./components/menu.js";
 import "./components/fixed-header.js";
 import "./components/split-title.js";
