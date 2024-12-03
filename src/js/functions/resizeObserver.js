@@ -16,7 +16,6 @@ export function createBodyResizeObserver(debounceDelay = 300) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			ScrollTrigger.refresh();
-			console.log('ddd')
 		}, debounceDelay);
 	};
 

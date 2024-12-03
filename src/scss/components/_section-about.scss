@@ -1,0 +1,26 @@
+@use "../functions/clamp-calc" as *;
+@use "../mixins/breakpoint" as mq;
+
+.section-about {
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		padding-block-start: clamp-calc(590px, 1440px, 32px, 48px);
+		row-gap: 16px;
+	}
+
+	&__media {
+		@include mq.md-desktop {
+			@include mq.above-tablet {
+				padding-inline-end: var(--container);
+			}
+		}
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 543/427;
+	}
+}

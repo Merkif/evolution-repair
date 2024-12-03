@@ -47,6 +47,10 @@
 				transition: opacity 0.3s ease;
 			}
 
+			&:is(&:hover, :has(:is(&__button, &__link):focus-visible)) {
+				--scale: 1.08;
+			}
+
 			&:is(&:hover, :has(:is(&__button, &__link):focus-visible))
 				&__content {
 				translate: 0 0;
@@ -90,6 +94,8 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		transition: scale 0.3s ease;
+		scale: var(--scale, revert);
 	}
 
 	&__desc {

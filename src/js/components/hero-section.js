@@ -6,13 +6,11 @@ tl.fromTo(
 	".header--main",
 	{
 		opacity: 0,
-		yPercent: -100,
 	},
 	{
 		ease: "power4.out",
 		delay:0.5,
 		opacity: 1,
-		yPercent: 0,
 		duration: 1,
 	}
 );
@@ -27,7 +25,7 @@ tl.fromTo(
 		ease: "power4.out",
 		opacity: 1,
 		yPercent: 0,
-		duration: 2,
+		duration: 1.232,
 		stagger: 0.2,
 	},
 	"-=0.8"

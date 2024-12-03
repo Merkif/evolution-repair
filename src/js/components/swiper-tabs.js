@@ -84,12 +84,9 @@ animateOnScroll(
 	{
 		from: {
 			opacity: 0,
-			y:-20
 		},
 		to: {
-			ease: "elastic.out(1,0.4)",
 			opacity: 1,
-			y:0,
 			stagger: {
 				each: 0.1,
 				from: "start",

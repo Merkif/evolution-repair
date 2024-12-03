@@ -6,12 +6,12 @@ animateOnScroll(
 	{
 		from: {
 			opacity: 0,
-			scale:0.98,
+			scale: 0.98,
 		},
 		to: {
-			ease: 'power2.inOut',
+			ease: "power2.inOut",
 			opacity: 1,
-			scale:1,
+			scale: 1,
 			stagger: {
 				each: 0.2,
 			},
@@ -28,12 +28,12 @@ animateOnScroll(
 	{
 		from: {
 			opacity: 0,
-			y:20,
+			y: 20,
 		},
 		to: {
 			ease: "expo.out",
 			opacity: 1,
-			y:0,
+			y: 0,
 			stagger: {
 				each: 0.15,
 			},
@@ -50,14 +50,14 @@ animateOnScroll(
 	{
 		from: {
 			opacity: 0,
-			y:50,
-			scale:0.9
+			y: 50,
+			scale: 0.9,
 		},
 		to: {
 			ease: "expo.out",
 			opacity: 1,
-			y:0,
-			scale:1,
+			y: 0,
+			scale: 1,
 			stagger: {
 				each: 0.15,
 			},
@@ -74,14 +74,14 @@ animateOnScroll(
 	{
 		from: {
 			opacity: 0,
-			y:50,
-			scale:0.9
+			y: 50,
+			scale: 0.9,
 		},
 		to: {
 			ease: "expo.out",
 			opacity: 1,
-			y:0,
-			scale:1,
+			y: 0,
+			scale: 1,
 			stagger: {
 				each: 0.2,
 			},
@@ -107,6 +107,6 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.1,
 	}
 );

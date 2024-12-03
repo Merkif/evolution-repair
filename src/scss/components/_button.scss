@@ -26,7 +26,7 @@
 	color: var(--button-color);
 	background-image: var(--button-gradient);
 	background-color: var(--button-background);
-	transition-property: color, background-color;
+	transition-property: color, background-color, transform;
 	transition-duration: 0.3s;
 	transition-timing-function: ease;
 	cursor: default;
@@ -35,6 +35,10 @@
 
 	&:is([href], [type]) {
 		cursor: pointer;
+
+		@include active {
+			transform: scale(0.99);
+		}
 	}
 
 	&--pill {
@@ -53,6 +57,20 @@
 		--button-gradient: revert;
 		--button-background: #f6eeeb;
 		--button-color: var(--color-default);
+	}
+
+	&--dark {
+		--button-gradient: revert;
+		--button-background: var(--color-default);
+		--button-color: #fff;
+		--button-border: 1px solid var(--color-default);
+
+		&:is([href], [type]) {
+			@include hover {
+				--button-color: var(--color-default);
+				--button-background: #fff;
+			}
+		}
 	}
 
 	&--large {

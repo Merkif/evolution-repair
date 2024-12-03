@@ -20,6 +20,8 @@ splitText.elements.forEach((el) => {
 			start: "clamp(top 90%)",
 			end: "clamp(top 7%)",
 			scrub: 1.2,
+			refreshPriority: 0,
+			toggleActions: "play pause resume reset"
 		},
 	});
 });

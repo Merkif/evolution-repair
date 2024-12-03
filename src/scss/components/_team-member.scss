@@ -1,12 +1,29 @@
 @use "../functions/clamp-calc" as *;
+@use "../mixins/breakpoint" as mq;
 
 .team-members {
 	display: grid;
-	gap: 32px;
+	gap: clamp-calc(1024px, 1440px, 24px, 32px);
 
 	&--horizontal {
 		grid-auto-columns: auto;
 		grid-auto-flow: column;
+
+		@include mq.mobile {
+			overflow-x: auto;
+			width: 100%;
+			scroll-snap-type: x mandatory;
+			padding-inline: var(--container-offset);
+			scrollbar-width: 0;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.team-members__item {
+				scroll-snap-align: center;
+			}
+		}
 	}
 }
 
@@ -16,11 +33,11 @@
 	flex-direction: column;
 	align-items: start;
 	justify-content: end;
-	width: clamp-calc(1024px, 1440px, 280px, 362px);
+	width: clamp-calc(590px, 1440px, 250px, 362px);
 	color: #000;
 	aspect-ratio: 1/1;
 	padding-block: 21px;
-	padding-inline: 29px;
+	padding-inline: clamp-calc(590px, 1440px, 16px, 29px);
 	row-gap: 16px;
 
 	&__name {
@@ -30,13 +47,13 @@
 	}
 
 	&__figure {
+		position: absolute;
+		inset: 0;
 		z-index: -1;
 		margin: 0;
 	}
 
 	&__img {
-		position: absolute;
-		inset: 0;
 		display: block;
 		width: 100%;
 		height: 100%;

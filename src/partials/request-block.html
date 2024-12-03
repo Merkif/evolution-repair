@@ -1,9 +1,11 @@
-<section class="section-request section-request--bg" aria-labelledby="request-title">
-	<h2 class="section-request__title title title--2 title center split-title" id="request-title">Закажите замер сейчас</h2>
+<section class="section-request @if (context.customClass) {section-request--bg}" aria-labelledby="@id-title" id="@id">
+	<h2 class="section-request__title title title--2 title center split-title" id="@id-title">@title</h2>
 	<div class="section-request__content">
 		<div class="section-request__desc desc">
-			<p>Наши специалисты ежедневно работают по Москве. <br> Если мастер рядом, он приедет к вам и проведет замер <br> всего за 2 часа</p>
+			<p>@desc</p>
 		</div>
-		<button class="button button--gradient button--large" type="button"><span>Заказать замер</span></button>
+		<button class="button button--large @if (!context.customClass) {button--dark} @if (context.customClass) {button--gradient}" type="button">
+			<span>@btnText</span>
+		</button>
 	</div>
 </section>

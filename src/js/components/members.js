@@ -10,7 +10,7 @@ const membersList = sectionTeam?.querySelector("#members-scroll");
 let getToValue = () => -(membersList.scrollWidth + sectionTeamContent.scrollWidth - window.innerWidth);
 
 if (sectionTeam) {
-	mm.add("(min-width: 768px)", () => {
+	mm.add("(min-width: 591px)", () => {
 		const scrollTween = gsap.to(membersList, {
 			x: () => getToValue(),
 			ease: "none",
@@ -20,6 +20,7 @@ if (sectionTeam) {
 				invalidateOnResize: true,
 				trigger: sectionTeam,
 				pin: true,
+				toggleActions: "play pause resume reset",
 				start: "clamp(center 55%)",
 				end: () => "+=" +(membersList.scrollWidth + sectionTeamContent.scrollWidth - window.innerWidth),
 			},
