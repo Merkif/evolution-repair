@@ -23,6 +23,8 @@
 @use "./components/stage-card";
 @use "./components/project-card";
 @use "./components/team-member";
+@use "./components/map";
+@use "./components/contact-list";
 
 // подключения секций страницы
 @use "./components/section-hero";
@@ -34,6 +36,7 @@
 @use "./components/section-portfolio";
 @use "./components/section-team";
 @use "./components/section-about";
+@use "./components/section-contact";
 
 // utils
 @use "./components/utils";

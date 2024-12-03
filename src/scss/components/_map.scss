@@ -1,0 +1,6 @@
+.map {
+	&__iframe {
+		display: block;
+		aspect-ratio: var(--ar, 400 / 400);
+	}
+}

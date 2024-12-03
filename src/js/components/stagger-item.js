@@ -110,3 +110,26 @@ animateOnScroll(
 		threshold: 0.1,
 	}
 );
+
+//guarantee cards
+animateOnScroll(
+	".section-contact .contact-list__item",
+	{
+		from: {
+			opacity: 0,
+			y: 20,
+		},
+		to: {
+			ease: "expo.out",
+			opacity: 1,
+			y: 0,
+			duration:1,
+			stagger: {
+				each: 0.15,
+			},
+		},
+	},
+	{
+		threshold: 0.3,
+	}
+);
