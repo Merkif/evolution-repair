@@ -1,8 +1,10 @@
 import MediaQueryManager from "../functions/MediaQueryManager.js";
 
 const headerDropdownItems = document.querySelectorAll('.menu__link--dropdown');
+const footerDropdownItems = document.querySelectorAll('.footer-menu__link--dropdown');
 const mqManager = new MediaQueryManager();
 const headerDropdownHandler = createDropdownHandler(headerDropdownItems, 'menu__item--open');
+const footerDropdownHandler = createDropdownHandler(footerDropdownItems, 'footer-menu__item--open');
 
 function createDropdownHandler(items, className = 'open') {
 	let isEventListenersAdded = false;
@@ -38,4 +40,10 @@ mqManager.add(
 	'(max-width: 1024px)',
 	headerDropdownHandler.enableDropdownMenu,
 	headerDropdownHandler.disableDropdownMenu
+);
+
+mqManager.add(
+	'(max-width: 576px)',
+	footerDropdownHandler.enableDropdownMenu,
+	footerDropdownHandler.disableDropdownMenu
 );

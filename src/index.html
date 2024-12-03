@@ -34,7 +34,9 @@
 		@include('partials/section-about.html')
 		@include('partials/section-contact.html')
 	</main>
-	@include('partials/footer.html')
+	@include('partials/footer.html', {
+		"home": true,
+	})
 </body>
 
 </html>

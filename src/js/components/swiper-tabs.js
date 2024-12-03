@@ -74,7 +74,7 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.15,
 	}
 );
 
@@ -94,6 +94,6 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.15,
 	}
 );

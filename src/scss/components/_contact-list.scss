@@ -4,7 +4,15 @@
 
 .contact-list {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, (minmax(180px, 1fr)));
+	grid-template-columns: repeat(
+		auto-fill,
+		(
+			minmax(
+				var(--item-width, clamp-calc(670px, 1440px, 150px, 240px)),
+				1fr
+			)
+		)
+	);
 	gap: clamp-calc(590px, 768px, 24px, 32px)
 		clamp-calc(590px, 768px, 16px, 24px);
 }
@@ -20,7 +28,7 @@
 		align-items: center;
 		justify-content: center;
 		order: -1;
-		width: clamp-calc(590px, 1440px, 42px, 64px);
+		width: clamp-calc(590px, 1440px, 32px, 64px);
 		color: hsl(var(--color-primary-hsl) / var(--alpha, 70%));
 		transition: color 0.3s ease;
 		aspect-ratio: 1/1;

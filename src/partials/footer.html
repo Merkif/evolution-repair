@@ -1,10 +1,15 @@
 <footer class="footer">
+	<a class="footer__logo logo" @if (!context.home) {href="/"}>
+		<svg class="logo__img" width="178" height="57">
+		  <use xlink:href="img/sprite.svg#logo"></use>
+		</svg>
+	</a>
 	<ul class="footer__social social" role="list">
 		<li class="social__item">
-			<a class="social__link" href="" target="_blank" rel="noopener nofollow" title="Наш канал youtube">
-				<span class="sr-only">Наш канал youtube</span>
-				<svg aria-hidden="true" width="24" height="18">
-					<use xlink:href="img/sprite.svg#yt"></use>
+			<a class="social__link social__link--tg" href="" target="_blank" rel="noopener nofollow" title="Наш Телеграм">
+				<span class="sr-only">Наш Телеграм</span>
+				<svg aria-hidden="true" width="21" height="18">
+					<use xlink:href="img/sprite.svg#tg"></use>
 				</svg>
 			</a>
 		</li>
@@ -17,20 +22,88 @@
 			</a>
 		</li>
 		<li class="social__item">
-			<a class="social__link social__link--tg" href="" target="_blank" rel="noopener nofollow" title="Наш Телеграм">
-				<span class="sr-only">Наш Телеграм</span>
-				<svg aria-hidden="true" width="22" height="19">
-					<use xlink:href="img/sprite.svg#tg"></use>
-				</svg>
-			</a>
-		</li>
-		<li class="social__item">
-			<a class="social__link" href="" target="_blank" rel="noopener nofollow" title="Наш сайт">
-				<span class="sr-only">Наш сайт</span>
+			<a class="social__link" href="" target="_blank" rel="noopener nofollow" title="Наш канал на Yandex Dzen">
+				<span class="sr-only">Наш канал на Yandex Dzen</span>
 				<svg aria-hidden="true" width="26" height="26">
-					<use xlink:href="img/sprite.svg#site"></use>
+					<use xlink:href="img/sprite.svg#dzen"></use>
 				</svg>
 			</a>
 		</li>
 	</ul>
+	<ul class="footer__menu footer-menu" role="list">
+		<li class="footer-menu__item footer-menu__item--dropdown" itemprop="name">
+			<button class="footer-menu__link footer-menu__link--dropdown" type="button">Ремонт</button>
+			<ul class="footer-menu__dropdown-list" role="list">
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Руководство</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Ремонт квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Ремонт студии</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Ремонт в новостройке</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Вторичные квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">1-к квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">2-к квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">3-к квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">4-к квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">5-к квартиры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Двухуровневые</a></li>
+			</ul>
+		</li>
+		<li class="footer-menu__item footer-menu__item--dropdown" itemprop="name">
+			<button class="footer-menu__link footer-menu__link--dropdown" type="button">Дизайн</button>
+			<ul class="footer-menu__dropdown-list" role="list">
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Дизайн-проект интерьера</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Студий</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">1-к квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">2-к квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">3-к квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">4-к квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">5-к квартир</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Апартаментов</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Домов</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Пентхаусов</a></li>
+			</ul>
+		</li>
+		<li class="footer-menu__item footer-menu__item--dropdown" itemprop="name">
+			<button class="footer-menu__link footer-menu__link--dropdown" type="button">Прочие услуги</button>
+			<ul class="footer-menu__dropdown-list" role="list">
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Дома</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Коттеджи</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Апартаменты</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Пентхаусы</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Офисы</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Магазины</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Торговые центры</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Рестораны</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Салоны красоты</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Фитнес-центры</a></li>
+			</ul>
+		</li>
+		<li class="footer-menu__item footer-menu__item--dropdown" itemprop="name">
+			<button class="footer-menu__link footer-menu__link--dropdown" type="button">Компания</button>
+			<ul class="footer-menu__dropdown-list" role="list">
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">О компании</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Портфолио</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Отзывы</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Контакты</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Вакансии</a></li>
+			</ul>
+		</li>
+		<li class="footer-menu__item footer-menu__item--dropdown" itemprop="name">
+			<button class="footer-menu__link footer-menu__link--dropdown" type="button">Виды ремонта</button>
+			<ul class="footer-menu__dropdown-list" role="list">
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Элитный</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Дизайнерский</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Премиальный</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Евроремонт</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Капитальный</a></li>
+				<li class="footer-menu__dropdown-item" itemprop="name"><a class="footer-menu__dropdown-link footer-menu__link" href="" itemprop="url">Комплексный</a></li>
+			</ul>
+		</li>
+	</ul>
+	<div class="footer__block-end">
+		<p class="footer__links">
+			<a href="">Конфиденциальность</a>
+			<a href="">Использование cookies</a>
+		</p>
+		<p class="footer__copy">© 2024 Эволюция ремонта</p>
+	</div>
 </footer>

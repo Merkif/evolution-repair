@@ -1,6 +1,8 @@
 @use "./functions/clamp-calc" as *;
 
 .main {
+	background-color: inherit;
+
 	&__section {
 		display: flex;
 		flex-direction: column;
