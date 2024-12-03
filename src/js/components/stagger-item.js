@@ -18,7 +18,7 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.1,
 	}
 );
 
@@ -40,7 +40,7 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.2,
 	}
 );
 
@@ -64,7 +64,7 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: 0.2,
 	}
 );
 
@@ -88,7 +88,7 @@ animateOnScroll(
 		},
 	},
 	{
-		threshold: 0.3,
+		threshold: .05,
 	}
 );
 
