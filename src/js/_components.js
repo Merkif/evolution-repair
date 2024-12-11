@@ -9,3 +9,4 @@ import "./components/request-section.js";
 import "./components/observe-body-resize.js";
 import "./components/members.js";
 import "./components/stagger-item.js";
+import "./components/modal.js";
