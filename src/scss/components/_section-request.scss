@@ -20,8 +20,7 @@
 		position: relative;
 		overflow: hidden;
 		overflow: clip;
-		background: var(--color-default) url("../img/plan.svg") no-repeat
-			var(--pos-x, 30%) var(--pos-y, 47%) / var(--bg-size, 133%);
+		background: var(--color-default) url("../img/plan.svg") no-repeat var(--pos-x, 30%) var(--pos-y, 47%) / var(--bg-size, 133%);
 
 		@include mq.tablet {
 			--pos-x: 30%;
@@ -42,5 +41,13 @@
 		flex-direction: column;
 		align-items: center;
 		row-gap: clamp-calc(590px, 1440px, 18px, 24px);
+	}
+
+	&__desc {
+		@include mq.mobile {
+			br {
+				display: none;
+			}
+		}
 	}
 }

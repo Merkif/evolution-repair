@@ -33,7 +33,7 @@
 	padding-block: var(--button-padding-block);
 	padding-inline: var(--button-padding-inline);
 
-	&:is([href], [type]) {
+	&:is([href], [type]):not(:disabled, [disabled]) {
 		cursor: pointer;
 
 		@include active {
@@ -65,7 +65,7 @@
 		--button-color: #fff;
 		--button-border: 1px solid var(--color-default);
 
-		&:is([href], [type]) {
+		&:is([href], [type]):not(:disabled, [disabled]) {
 			@include hover {
 				--button-color: var(--color-default);
 				--button-background: #fff;
@@ -85,7 +85,7 @@
 		--button-gradient: revert;
 		--button-background: transparent;
 
-		&:is([href], [type]) {
+		&:is([href], [type]):not(:disabled, [disabled]) {
 			@include hover {
 				--button-color: var(--color-primary);
 			}
@@ -110,7 +110,7 @@
 			transition: opacity 0.5s ease;
 		}
 
-		&:is([href], [type]) {
+		&:is([href], [type]):not(:disabled, [disabled]) {
 			@include hover {
 				&::before {
 					opacity: 1;
@@ -138,5 +138,9 @@
 
 	span {
 		position: relative;
+	}
+
+	&:is(:disabled, [disabled]) {
+		filter: grayscale(1);
 	}
 }

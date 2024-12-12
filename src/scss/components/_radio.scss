@@ -1,0 +1,97 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint" as mq;
+@use "../functions/clamp-calc" as *;
+
+.radio {
+	--def: var(--TRUE);
+	--checked: var(--FALSE);
+	--disabled: var(--FALSE);
+	--disabled-checked: var(--FALSE);
+	--alpha: var(--def, 10%) var(--checked, 100%);
+	--radio-size: 24px;
+	--inner-size: 5px;
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	&::before {
+		content: '';
+		display: flex;
+		border-style: solid;
+		border-width: 2px;
+		border-color: var(--def, hsl(var(--color-primary-hsl) / var(--alpha))) var(--checked, hsl(var(--color-primary-hsl) / var(--alpha))) var(--disabled, hsl(var(--color-gray-hsl) / 10%)) var(--disabled-checked, hsl(var(--color-gray-hsl) / 20%));
+		border-radius: 50%;
+		width: var(--radio-size);
+		box-shadow: var(--def, inset 0 0 0 0 #fff) var(--checked, inset 0 0 0 var(--inner-size) #fff) var(--disabled, inset 0 0 0 var(--inner-size) transparent) var(--disabled-checked, inset 0 0 0 var(--inner-size) hsl(var(--color-gray-hsl) / 10%));
+		background-color: var(--def, #fff) var(--checked, hsl(var(--color-primary-hsl) / var(--alpha))) var(--disabled, transparent) var(--disabled-checked, #fff);
+		transition: border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
+		aspect-ratio: 1/1;
+	}
+
+	&--button {
+		--alpha: var(--def, 20%) var(--checked, 100%) var(--disabled, 10%) var(--disabled-checked, 30%);
+		--bg-color: var(--def, 5%) var(--checked, 100%) var(--disabled, 10%) var(--disabled-checked, 30%);
+
+		border: 1px solid hsl(var(--color-primary-hsl) / var(--alpha));
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--def, currentcolor) var(--checked, #fff) var(--disabled, currentcolor) var(--disabled-checked, currentcolor);
+		background-color: hsl(var(--color-primary-hsl) / var(--bg-color));
+		transition-property: color, background-color, border;
+		transition-duration: .3s;
+		transition-timing-function: ease;
+		padding-block: 8px;
+		padding-inline: 8px 16px;
+
+		@include mq.mobile {
+			--radio-size: 20px;
+			--inner-size: 3px;
+
+			align-items: center;
+			font-size: clamp-calc(320px, 420px, 10px, 14px);
+			gap: 6px;
+			padding-block: 6px;
+			padding-inline: 4px clamp-calc(320px, 590px, 6px, 12px);
+		}
+	}
+
+	@include hover {
+		--alpha: var(--def, 50%) var(--checked, 100%);
+	}
+
+	&:has(:focus-visible) {
+		--alpha: 100%;
+	}
+
+	&:has(:checked) {
+		--checked: var(--TRUE);
+		--def: var(--FALSE);
+		--disabled: var(--FALSE);
+		--disabled-checked: var(--FALSE);
+	}
+
+	&:has(:disabled:not(:checked)) {
+		--checked: var(--FALSE);
+		--def: var(--FALSE);
+		--disabled: var(--TRUE);
+		--disabled-checked: var(--FALSE);
+	}
+
+	&:has(:disabled:checked) {
+		--checked: var(--FALSE);
+		--def: var(--FALSE);
+		--disabled: var(--FALSE);
+		--disabled-checked: var(--TRUE);
+	}
+
+	&:has(:disabled) {
+		cursor: not-allowed;
+	}
+
+
+	&__content {
+		color: var(--def, var(--color-primary-dark)) var(--checked, var(--color-primary-dark)) var(--disabled, var(--color-gray)) var(--disabled-checked, var(--color-gray));
+	}
+}

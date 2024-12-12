@@ -1,7 +1,61 @@
 <div class="hystmodal" id="contact-modal" aria-hidden="true">
 	<div class="hystmodal__wrap">
 		<div class="hystmodal__window" role="dialog" aria-modal="true">
-			<button data-hystclose class="hystmodal__close">Close</button>
+			<button class="hystmodal__close" data-hystclose>Close</button>
+			<header class="hystmodal__header">
+				<h2 class="hystmodal__title title title--3">Обсудите ваш проект с экспертом</h2>
+				<div class="desc">
+					<p>Заполните форму, и мы свяжемся с вами в ближайшее время, чтобы подробно обсудить все детали вашего проекта и предложить оптимальные решения.</p>
+				</div>
+			</header>
+			<form class="form" action="">
+				<div class="form__group">
+					<label class="field">
+						<span class="field__label">Имя *</span>
+						<input class="field__input" name="name" id placeholder="Ваше имя" required minlength="2" maxlength="250">
+						<button class="field__reset" type="button" title="Сбросить значение">
+							<span class="sr-only">Сбросить значение</span>
+						</button>
+					</label>
+					<label class="field">
+						<span class="field__label">Телефон *</span>
+						<input class="field__input" name="phone" type="text" data-tel-input maxlength="18" placeholder="Ваш телефон" inputmode="numeric" pattern="([\+]*[7-8]{1}\s?[\(]*9[0-9]{2}[\)]*\s?\d{3}[\-]*\d{2}[\-]*\d{2})" required>
+						<button class="field__reset" type="button" title="Сбросить значение">
+							<span class="sr-only">Сбросить значение</span>
+						</button>
+						<div class="field__label field__error">
+							Введите номер в формате +7 901 123-45-67 или 8 902 123 45 67
+						</div>
+					</label>
+				</div>
+				<fieldset class="form__group">
+					<legend class="form__legend title title--4">Как вам удобнее общаться?</legend>
+					<div class="form__list">
+						<label class="radio radio--button">
+							<input class="sr-input" type="radio" checked name="contact-mode" value="WhatsApp" required>
+							<span class="radio__content">WhatsApp</span>
+						</label>
+						<label class="radio radio--button">
+							<input class="sr-input" type="radio" name="contact-mode" value="Telegram" required>
+							<span class="radio__content">Telegram</span>
+						</label>
+						<label class="radio radio--button">
+							<input class="sr-input" type="radio" name="contact-mode" value="Tel" required>
+							<span class="radio__content">По Телефону</span>
+						</label>
+					</div>
+				</fieldset>
+				<div class="form__group">
+					<label class="field">
+						<span class="field__label">Опишите ваш проект *</span>
+						<textarea class="field__input field__input--textarea" name="project-desc" placeholder="Поделитесь идеей вашего проекта" rows="4" required></textarea>
+					</label>
+				</div>
+				<div class="form__action">
+					<button class="form__button button button--gradient button--large button--wide" type="submit"><span>Отправить</span></button>
+					<div class="form__agreement desc"><p>Нажимая кнопку отправить, вы соглашаетесь c <a href="" target="_blank">политикой конфиденциальности</a> и даете согласие на обработку <a href="" target="_blank">персональных данных</a></p></div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,111 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/focus" as *;
+
+.field {
+	position: relative;
+	display: grid;
+	color: var(--color, hsl(var(--color-default-hsl) / 100%));
+	row-gap: 5px;
+
+	&:has(&__reset) &__input {
+		padding-inline-end: 45px;
+	}
+
+	&:has(&__input:placeholder-shown, &__input:is(:disabled, :read-only)) &__reset {
+		display: none;
+	}
+
+	@media (hover:hover) {
+		&:has(&__input:not(:disabled, :read-only)):has(:is(:hover, :focus-visible)) {
+			--border-color: hsl(var(--color-default-hsl) / 100%)
+		}
+	}
+
+	/* disabled && read-only */
+	&:has(&__input:is(:disabled, :read-only)) {
+		--color: hsl(var(--color-gray-hsl) / 100%);
+		--border-color: hsl(var(--color-gray-hsl) / 10%);
+		--bg-color: #f7f7f7;
+		--label-color: var(--color);
+	}
+
+	/* error */
+	&--error:not(:has(:focus)),
+	&:has(:user-invalid):not(:has(:focus)) {
+		--color: var(--color-red);
+		--border-color: var(--color-red);
+		--bg-color: #fff;
+		--label-color: var(--color-red);
+	}
+
+	&:has(:user-invalid):not(:has(:focus)) &__error {
+		display: block;
+	}
+
+	&__label {
+		display: flex;
+		grid-column: 1;
+		font-size: 12px;
+		line-height: 1;
+		color: var(--label-color, hsl(var(--color-default-hsl) / 100%));
+		transition: color .3s ease;
+		padding-inline: 20px;
+	}
+
+	&__input {
+		grid-column: 1;
+		grid-row: 2;
+		overflow: hidden;
+		outline: none;
+		border: 1px solid var(--border-color, hsl(var(--color-default-hsl) / 40%));
+		border-radius: var(--border-radius-10);
+		width: 100%;
+		font: inherit;
+		text-overflow: ellipsis;
+		color: inherit;
+		background-color: var(--bg-color, #fff);
+		transition-property: color, border-color, background-color;
+		transition-duration: .3s;
+		transition-timing-function: ease;
+		padding-block: 14px 12px;
+		padding-inline: 20px;
+
+		&::placeholder {
+			color: hsl(var(--color-default-hsl) / 50%);
+		}
+
+		&--textarea {
+			min-height: 128px;
+			max-height: 300px;
+			resize: vertical;
+		}
+	}
+
+	&__reset {
+		place-self: center end;
+		grid-column: 1;
+		grid-row: 2;
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 12'%3E%3Cpath stroke='%23002677' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m1 1 10 10M1 11 11 1'/%3E%3C/svg%3E");
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: 12px;
+		padding: 0;
+		width: 24px;
+		background-color: var(--color-defult-hsl);
+		cursor: pointer;
+		aspect-ratio: 1/1;
+		margin-inline-end: 20px;
+
+		@include hover {
+			opacity: .5;
+		}
+
+		@include focus {
+			opacity: .5;
+		}
+	}
+
+	&__error {
+		display: none;
+	}
+}
